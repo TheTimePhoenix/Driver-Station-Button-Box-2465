@@ -9,10 +9,8 @@
 //
 // NOTE: Arduino has an official Joystick library. /!\ THAT LIBRARY DOES NOT WORK! /!\
 //
-// by Matthew Heironimus
-// 2015-11-20
-//
-//(plus a couple tweaks by Phoenix Ma)
+// by Phoenix Ma (based on code by Matthew Heironimus)
+// 18MAR2022
 //--------------------------------------------------------------------
 
 // Creates a joystick
