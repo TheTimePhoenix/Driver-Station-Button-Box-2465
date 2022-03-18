@@ -1,9 +1,6 @@
 #include <Joystick.h>
 
-// Simple example application that shows how to read four Arduino
-// digital pins and map them to the USB Joystick library.
-//
-// The digital pins 9, 10, 11, and 12 are grounded when they are pressed.
+// Application for control of a FIRST Robotics Competition button box.
 //
 // NOTE: This sketch file is for use with Arduino Leonardo and
 //       Arduino Micro only.
