@@ -5,6 +5,10 @@
 // NOTE: This sketch file is for use with Arduino Leonardo and
 //       Arduino Micro only.
 //
+// NOTE: This requires the use of the JOYSTICK library found on GITHUB: https://github.com/MHeironimus/ArduinoJoystickLibrary.
+//
+// NOTE: Arduino has an official Joystick library. /!\ THAT LIBRARY DOES NOT WORK! /!\
+//
 // by Matthew Heironimus
 // 2015-11-20
 //
