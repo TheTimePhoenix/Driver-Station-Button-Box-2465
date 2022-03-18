@@ -1,4 +1,6 @@
-  // Simple example application that shows how to read four Arduino
+#include <Joystick.h>
+
+// Simple example application that shows how to read four Arduino
 // digital pins and map them to the USB Joystick library.
 //
 // The digital pins 9, 10, 11, and 12 are grounded when they are pressed.
@@ -8,9 +10,11 @@
 //
 // by Matthew Heironimus
 // 2015-11-20
+//
+//(plus a couple tweaks by Phoenix Ma)
 //--------------------------------------------------------------------
 
-#include <Joystick.h>
+Joystick_ Joystick;
 
 void setup() {
   // Initialize Button Pins
@@ -44,22 +48,12 @@ int lastButtonState[numButton] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 void loop() {
 boolean sent = false;
   // Read pin values
-  for (int index = 0; index < numButton; index++)
-  {
+  for (int index = 0; index < numButton; index++) {
     int currentButtonState = !digitalRead(index + pinToButtonMap);
-    if (currentButtonState != lastButtonState[index])
-    {
+    if (currentButtonState != lastButtonState[index]) {
       lastButtonState[index] = currentButtonState;
+      Joystick.setButton(index, currentButtonState);
     }
-    if(currentButtonState == HIGH && sent == false){
-        Joystick.setButton(index, currentButtonState);
-        sent = true;
-        
-      }else{
-        Joystick.setButton(index, LOW);
-      }
-    }
-  
-
+  }
   delay(50);
 }
