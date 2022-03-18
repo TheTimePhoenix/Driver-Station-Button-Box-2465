@@ -55,5 +55,4 @@ boolean sent = false;
       Joystick.setButton(index, currentButtonState);
     }
   }
-  delay(50);
 }
