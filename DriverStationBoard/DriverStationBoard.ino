@@ -14,10 +14,11 @@
 //(plus a couple tweaks by Phoenix Ma)
 //--------------------------------------------------------------------
 
+// Creates a joystick
 Joystick_ Joystick;
 
 void setup() {
-  // Initialize Button Pins
+  // Initializes button pins
   pinMode(0, INPUT_PULLUP);
   pinMode(1, INPUT_PULLUP);
   pinMode(2, INPUT_PULLUP);
@@ -34,25 +35,26 @@ void setup() {
   pinMode(13, INPUT_PULLUP);
   
 
-  // Initialize Joystick Library
+  // Initializes Joystick library
   Joystick.begin();
 }
 
-// Constant that maps the phyical pin to the joystick button.
-const int pinToButtonMap = 0;
-const int numButton = 14;
+// Constant that identifies the number of buttons
+const int numberOfButtons = 12;
 
-// Last state of the button
-int lastButtonState[numButton] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+// Variable that stores the current button value
+int currentButtonState;
+
+// Array list that stores last state of the buttons
+int lastButtonState[numberOfButtons] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 void loop() {
-boolean sent = false;
-  // Read pin values
-  for (int index = 0; index < numButton; index++) {
-    int currentButtonState = !digitalRead(index + pinToButtonMap);
-    if (currentButtonState != lastButtonState[index]) {
-      lastButtonState[index] = currentButtonState;
-      Joystick.setButton(index, currentButtonState);
+  // Reads pin values and sets button values accordingly
+  for (int currentButton = 0; currentButton < numberOfButtons; currentButton++) {
+    currentButtonState = !digitalRead(currentButton);
+    if (lastButtonState[currentButton] != currentButtonState) {
+      lastButtonState[currentButton] = currentButtonState;
+      Joystick.setButton(currentButton, currentButtonState);
     }
   }
 }
